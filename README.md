@@ -1,6 +1,6 @@
 # Brake Pedal 
 
-`Brake Pedal` is a general purpose throttling and rate limiting library. The code was forked from [WebApiThrottle](https://github.com/stefanprodan/WebApiThrottle). It's currently in use at [Pangea](https://gopangea.com).
+`Brake Pedal` is a general purpose throttling and rate limiting library. The code was forked from https://github.com/emmekappa/BrakePedal. 
 
 The core library provides the following features:
 
@@ -14,37 +14,6 @@ The main purpose of this library is to "throttle". "Throttle" as a library name 
 Sticking to the whole car analogy, maybe calling it "Cops" or "Police" would make more sense since the police would stop you if you go over the speed limit (throttling) and arrest you disallowing you to drive (locking)..?
 
 If you'd like to suggest a name change, feel free to open a PR.
-
-### Packages
-
-Current Version: `1.0.0`
-
-Target Framework: `.NET 4.5 and above` because the main package contains an an in-memory repository implementation based on `System.Runtime.Caching.ObjectCache` which is not compliant with PCL.
-
-- `BrakePedal` is the main package that contains all the logic as well as an in-memory repository.
-    - [nuget.org/packages/BrakePedal](https://www.nuget.org/packages/BrakePedal)
-- `BrakePedal.Http` contains code to use the main package in a web application as a handler or filter.
-    - [nuget.org/packages/BrakePedal.Http](https://www.nuget.org/packages/BrakePedal.Http)
-- `BrakePedal.Redis` contains an implementation of a Redis throttle repository which uses [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
-    - [nuget.org/packages/BrakePedal.Redis](https://www.nuget.org/packages/BrakePedal.Redis)
-
-###  CI
-
-[![](https://travis-ci.org/gopangea/BrakePedal.svg?branch=master)](https://travis-ci.org/gopangea/BrakePedal)
-
-https://travis-ci.org/gopangea/BrakePedal 
-
-### To Do
-
-#### Documentation
-
-- Add XML documentation to public functions.
-- Figure out how to include debug symbols from from xbuild (it's generating mdb only).
-
-#### Refactoring 
-
-- Provide a simpler way to define throttle keys (maybe through a lamda) instead of having to subclass.
-- Use something other than `System.Runetime.Caching.ObjectCache` for the in-memory repository to allow creating a PCL.
 
 ## Usage
 

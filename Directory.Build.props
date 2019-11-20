@@ -1,0 +1,15 @@
+<Project>
+
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <PackageVersion>2.0.0</PackageVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/peters/BrakePedal.Core/blob/master</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+	<PackageOutputPath>$(MSBuildThisFileDirectory)nupkgs</PackageOutputPath>
+	<Authors>gopangea</Authors>
+  </PropertyGroup>
+
+</Project>

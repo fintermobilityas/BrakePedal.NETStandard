@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>BrakePedal.NETStandard.Redis</PackageId>
+    <PackageDescription>The BrakePedal.Redis package contains an implementation of a Redis BrakePedal repository which uses StackExchange.Redis (https://github.com/StackExchange/StackExchange.Redis) for use with the BrakePedal library.</PackageDescription>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrakePedal.NETStandard\BrakePedal.NETStandard.csproj" />
+  </ItemGroup>
+
+</Project>
