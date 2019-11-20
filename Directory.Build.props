@@ -8,8 +8,8 @@
     <RepositoryUrl>https://github.com/peters/BrakePedal.NETStandard</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryBranch>master</RepositoryBranch>
-	<PackageOutputPath>$(MSBuildThisFileDirectory)nupkgs</PackageOutputPath>
-	<Authors>gopangea</Authors>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)nupkgs</PackageOutputPath>
+    <Authors>gopangea</Authors>
   </PropertyGroup>
 
 </Project>
