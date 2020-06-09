@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrakePedal.NETStandard.Redi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrakePedal.NETStandard", "BrakePedal.NETStandard\BrakePedal.NETStandard.csproj", "{C3A38D23-1F08-4958-B123-C1CB8255089B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrakePedal.NETStandard.Http", "BrakePedal.NETStandard.Http\BrakePedal.NETStandard.Http.csproj", "{B70119AB-1278-43BF-9E2F-C4A4DA1D8AE8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrakePedal.NETStandard.Tests", "BrakePedal.NETStandard.Tests\BrakePedal.NETStandard.Tests.csproj", "{7240229A-F82F-4462-B1BC-C1C7868A0BDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{1627F34F-DDB0-4A66-A610-8AD8119F6C07}"
@@ -31,10 +29,6 @@ Global
 		{C3A38D23-1F08-4958-B123-C1CB8255089B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A38D23-1F08-4958-B123-C1CB8255089B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A38D23-1F08-4958-B123-C1CB8255089B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B70119AB-1278-43BF-9E2F-C4A4DA1D8AE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B70119AB-1278-43BF-9E2F-C4A4DA1D8AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B70119AB-1278-43BF-9E2F-C4A4DA1D8AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B70119AB-1278-43BF-9E2F-C4A4DA1D8AE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7240229A-F82F-4462-B1BC-C1C7868A0BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7240229A-F82F-4462-B1BC-C1C7868A0BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7240229A-F82F-4462-B1BC-C1C7868A0BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
