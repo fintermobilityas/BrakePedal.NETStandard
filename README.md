@@ -9,6 +9,10 @@
 | Github Actions | windows-latest, ubuntu-latest | Branch: develop ![BrakePedal.NETStandard](https://github.com/fintermobilityas/BrakePedal.NETStandard/workflows/BrakePedal.NETStandard/badge.svg?branch=develop) |
 | Github Actions | windows-latest, ubuntu-latest | Branch: master ![BrakePedal.NETStandard](https://github.com/fintermobilityas/BrakePedal.NETStandard/workflows/BrakePedal.NETStandard/badge.svg?branch=master) |
 
+Sponsored by Finter Mobility AS. We are hiring! Check out our remote positions over at [finterjobs.com](https://finterjobs.com).
+
+## Introduction
+
 `Brake Pedal` is a general purpose throttling and rate limiting library. The code was forked from https://github.com/emmekappa/BrakePedal. 
 
 The core library provides the following features:
