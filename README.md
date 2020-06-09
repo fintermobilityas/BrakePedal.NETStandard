@@ -1,5 +1,13 @@
 # Brake Pedal 
 
+- **stable** ![Nuget](https://img.shields.io/nuget/v/BrakePedal.NETStandard) 
+- **pre-release**: ![Nuget](https://img.shields.io/nuget/vpre/BrakePedal.NETStandard)
+
+| Build server | Platforms | Build status |
+|--------------|----------|--------------|
+| Github Actions | windows-latest, ubuntu-latest | Branch: develop ![BrakePedal.NETStandard](https://github.com/fintermobilityas/BrakePedal.NETStandard/workflows/BrakePedal.NETStandard/badge.svg?branch=develop) |
+| Github Actions | windows-latest, ubuntu-latest | Branch: master ![BrakePedal.NETStandard](https://github.com/fintermobilityas/BrakePedal.NETStandard/workflows/BrakePedal.NETStandard/badge.svg?branch=master) |
+
 `Brake Pedal` is a general purpose throttling and rate limiting library. The code was forked from https://github.com/emmekappa/BrakePedal. 
 
 The core library provides the following features:
