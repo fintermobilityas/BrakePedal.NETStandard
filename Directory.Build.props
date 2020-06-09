@@ -2,14 +2,20 @@
 
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
-    <PackageVersion>2.0.0</PackageVersion>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Finter Mobility As</Authors>
+    <Product>BrakePedal.NETStandard</Product>
+    <Copyright>Copyright © Pangea</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/peters/BrakePedal.NETStandard</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/fintermobilityas/BrakePedal.NETStandard</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fintermobilityas/BrakePedal.NETStandard.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryBranch>master</RepositoryBranch>
-    <PackageOutputPath>$(MSBuildThisFileDirectory)nupkgs</PackageOutputPath>
-    <Authors>gopangea</Authors>
+    <PackageOutputPath Condition="$(PackageOutputPath) == ''">$(MSBuildThisFileDirectory)\nupkgs</PackageOutputPath>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
