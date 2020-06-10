@@ -74,10 +74,10 @@ jobs:
       - name: Push nuget packages 
         shell: pwsh
         run: | 
-          $nupkg_fullpath = Get-ChildItem ".\${{ env.GITHUB_WORKSPACE }}\nupkgs" -Filter *.nupkg | ForEach-Object { $_.FullName } | Select-Object -First 1
+          $nupkgs = Get-ChildItem ".\${{ env.GITHUB_WORKSPACE }}\nupkgs" -Filter *.nupkg | ForEach-Object { $_.FullName } | Select-Object
           $nupkg_version = Get-Content ".\${{ env.GITHUB_WORKSPACE }}\nupkgs\nupkg_version.txt"
                   
-          dotnet nuget push $nupkg_fullpath --source nuget.org --api-key ${{ secrets.PETERSUNDE_NUGET_ORG_API_KEY }}
+          dotnet nuget push ($nupkgs -Join " ") --source nuget.org --api-key ${{ secrets.PETERSUNDE_NUGET_ORG_API_KEY }}
           echo "::set-env name=NUPKG_VERSION::$nupkg_version"
 
       - name: Create github release tag
