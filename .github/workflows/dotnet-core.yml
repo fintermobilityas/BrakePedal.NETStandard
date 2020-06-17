@@ -18,21 +18,13 @@ jobs:
     steps:
       
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.2.0
         with:
+          fetch-depth: 0
           lfs: true
 
-      - name: Fetch all history for all tags and branches (gitversion requirement)
-        run: git fetch --prune --unshallow
-                      
-      - name: Read dotnet sdk version from global.json
-        shell: pwsh
-        run: |
-          $DOTNET_VERSION = Get-Content ".\$GITHUB_WORKSPACE\global.json" | ConvertFrom-Json | Select-Object -Expand sdk | Select-Object -Expand version    
-          echo "::set-env name=DOTNET_VERSION::$DOTNET_VERSION"
-          
-      - name: Setup dotnet v${{ env.DOTNET_VERSION }}
-        uses: actions/setup-dotnet@v1.4.0
+      - name: Setup dotnet using global.json
+        uses: actions/setup-dotnet@v1.5.0
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -74,10 +66,13 @@ jobs:
       - name: Push nuget packages 
         shell: pwsh
         run: | 
-          $nupkg_fullpath = Get-ChildItem ".\${{ env.GITHUB_WORKSPACE }}\nupkgs" -Filter *.nupkg | ForEach-Object { $_.FullName } | Select-Object -First 1
+          $nupkgs = Get-ChildItem ".\${{ env.GITHUB_WORKSPACE }}\nupkgs" -Filter *.nupkg | Select-Object -ExpandProperty FullName
+          
+          $nupkgs | ForEach-Object -Parallel {
+            dotnet nuget push $_ --source nuget.org --api-key ${{ secrets.PETERSUNDE_NUGET_ORG_API_KEY }}       
+          }
+            
           $nupkg_version = Get-Content ".\${{ env.GITHUB_WORKSPACE }}\nupkgs\nupkg_version.txt"
-                  
-          dotnet nuget push $nupkg_fullpath --source nuget.org --api-key ${{ secrets.PETERSUNDE_NUGET_ORG_API_KEY }}
           echo "::set-env name=NUPKG_VERSION::$nupkg_version"
 
       - name: Create github release tag
