@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+
 using Microsoft.Extensions.Caching.Memory;
 
 namespace BrakePedal.NETStandard
@@ -37,6 +39,9 @@ namespace BrakePedal.NETStandard
             return null;
         }
 
+        public Task<long?> GetThrottleCountAsync(IThrottleKey key, Limiter limiter)
+            => Task.FromResult(GetThrottleCount(key, limiter));
+
         public void AddOrIncrementWithExpiration(IThrottleKey key, Limiter limiter)
         {
             string id = CreateThrottleKey(key, limiter);
@@ -58,6 +63,12 @@ namespace BrakePedal.NETStandard
             _store.Set(id, cacheItem, cacheItem.Expiration);
         }
 
+        public Task AddOrIncrementWithExpirationAsync(IThrottleKey key, Limiter limiter)
+        {
+            AddOrIncrementWithExpiration(key, limiter);
+            return Task.CompletedTask;
+        }
+
         public void SetLock(IThrottleKey key, Limiter limiter)
         {
             string throttleId = CreateThrottleKey(key, limiter);
@@ -68,16 +79,31 @@ namespace BrakePedal.NETStandard
             _store.Set(lockId, true, expiration);
         }
 
+        public Task SetLockAsync(IThrottleKey key, Limiter limiter)
+        {
+            SetLock(key, limiter);
+            return Task.CompletedTask;
+        }
+
         public bool LockExists(IThrottleKey key, Limiter limiter)
         {
             string lockId = CreateLockKey(key, limiter);
             return _store.TryGetValue(lockId, out _);
         }
 
+        public Task<bool> LockExistsAsync(IThrottleKey key, Limiter limiter)
+            => Task.FromResult(LockExists(key, limiter));
+
         public void RemoveThrottle(IThrottleKey key, Limiter limiter)
         {
             string lockId = CreateThrottleKey(key, limiter);
             _store.Remove(lockId);
+        }
+
+        public Task RemoveThrottleAsync(IThrottleKey key, Limiter limiter)
+        {
+            RemoveThrottle(key, limiter);
+            return Task.CompletedTask;
         }
 
         public string CreateLockKey(IThrottleKey key, Limiter limiter)
@@ -91,6 +117,9 @@ namespace BrakePedal.NETStandard
             string id = string.Join(":", values);
             return id;
         }
+
+        public Task<string> CreateLockKeyAsync(IThrottleKey key, Limiter limiter)
+            => Task.FromResult(CreateLockKey(key, limiter));
 
         public string CreateThrottleKey(IThrottleKey key, Limiter limiter)
         {
@@ -107,6 +136,9 @@ namespace BrakePedal.NETStandard
             string id = string.Join(":", values);
             return id;
         }
+
+        public Task<string> CreateThrottleKeyAsync(IThrottleKey key, Limiter limiter)
+            => Task.FromResult(CreateThrottleKey(key, limiter));
 
         private List<object> CreateBaseKeyValues(IThrottleKey key, Limiter limiter)
         {

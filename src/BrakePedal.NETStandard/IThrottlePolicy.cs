@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BrakePedal.NETStandard
 {
@@ -10,8 +11,14 @@ namespace BrakePedal.NETStandard
 
         CheckResult Check(IThrottleKey key, bool increment = true);
 
+        Task<CheckResult> CheckAsync(IThrottleKey key, bool increment = true);
+
         bool IsThrottled(IThrottleKey key, out CheckResult result, bool increment = true);
 
+        Task<bool> IsThrottledAsync(IThrottleKey key, bool increment = true);
+
         bool IsLocked(IThrottleKey key, out CheckResult result, bool increment = true);
+
+        Task<bool> IsLockedAsync(IThrottleKey key, bool increment = true);
     }
 }

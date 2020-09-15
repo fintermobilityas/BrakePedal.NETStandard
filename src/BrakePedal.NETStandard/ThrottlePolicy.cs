@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BrakePedal.NETStandard
 {
@@ -71,9 +72,21 @@ namespace BrakePedal.NETStandard
             return result.IsThrottled;
         }
 
+        public async Task<bool> IsThrottledAsync(IThrottleKey key, bool increment = true)
+        {
+            var result = await CheckAsync(key, increment);
+            return result.IsThrottled;
+        }
+
         public bool IsLocked(IThrottleKey key, out CheckResult result, bool increment = true)
         {
             result = Check(key, increment);
+            return result.IsLocked;
+        }
+
+        public async Task<bool> IsLockedAsync(IThrottleKey key, bool increment = true)
+        {
+            var result = await CheckAsync(key, increment);
             return result.IsLocked;
         }
 
@@ -125,6 +138,9 @@ namespace BrakePedal.NETStandard
 
             return CheckResult.NotThrottled;
         }
+
+        public Task<CheckResult> CheckAsync(IThrottleKey key, bool increment = true)
+            => Task.FromResult(Check(key, increment));
 
         private void SetLimiter(TimeSpan span, long? count)
         {
