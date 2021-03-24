@@ -2,7 +2,6 @@
 
 - **stable** ![Nuget](https://img.shields.io/nuget/v/BrakePedal.NETStandard) 
 - **pre-release**: ![Nuget](https://img.shields.io/nuget/vpre/BrakePedal.NETStandard)
-- [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=fintermobilityas/BrakePedal.NETStandard)](https://dependabot.com)
 
 | Build server | Platforms | Build status |
 |--------------|----------|--------------|
